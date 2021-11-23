@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crisp landing 2022</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&family=Open+Sans:ital,wght@0,400;1,300&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" href="assets/base.css">
+
+    <style>
+
+        .sans, .sans-font, h1, h2, h3, p, ul, a {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .serif, .serif-font{
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* */
+        .sans > *,
+        .serif > * {
+            position: absolute;
+            opacity: 0;
+            transition: transform .25s ease-in, opacity .25s ease-in;
+        }
+        .sans > * {
+            transform-origin: -100% 50%;
+            transform: translateY(-200%) rotate(-25deg);
+        }
+        .serif > * {
+            transform-origin: 100% 50%;
+            transform: translateY(200%) rotate(-25deg);
+        }
+        .sans > *.show,
+        .serif > *.show {
+            opacity: 1;
+            transform: translateY(0) rotate(0);
+            transition: transform .25s ease-out, opacity .25s ease-out;
+        }
+        .sans > *.gone {
+            transform: translateY(200%) rotate(25deg);
+            opacity: 0;
+        }
+        .serif > *.gone {
+            transform: translateY(-200%) rotate(25deg);
+            opacity: 0;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <header class="fixed top-0 w-full text-center pt-8 z-50">
+        <a id="lets-meet" href="#" class="text-3xl uppercase" style="color: #75FC4C; letter-spacing: .75rem;">Meet</a>
+    </header>
+
+    <div class="fixed top-0 w-screen h-screen overflow-hidden">
+        <div id="arrows" class="fixed flex flex-col w-full h-full justify-center items-center text-xl transition">
+            <span class="mb-40">&#8593;</span>
+            <span class="mt-40">&#8595;</span>
+        </div>
+        <main class="flex w-screen h-screen">
+            <div class="flex w-1/2 h-full justify-end items-center pr-2 sans">
+                <span class="text-8xl">crisp</span>
+                <span class="text-8xl">create</span>
+                <span class="text-8xl">rebellious</span>
+                <span class="text-8xl">intimate</span>
+                <span class="text-8xl">sustainable</span>
+                <span class="text-8xl">pertinent</span>
+            </div>
+            <div class="flex w-1/2 h-full justify-start items-center pl-2 serif">
+                <span class="text-8xl">id</span>
+                <span class="text-8xl">identities</span>
+                <span class="text-8xl">brands</span>
+                <span class="text-8xl">strategies</span>
+                <span class="text-8xl">business</span>
+                <span class="text-8xl">products</span>
+            </div>
+        </main>
+    </div>
+
+    <div id="meet" class="hidden z-20">
+        <div class="relative flex min-h-screen py-20 px-10 bg-white max-w-7xl m-auto">
+            <div class="w-1/2 pr-8 bg-cover bg-center" style="background-color: #F2F2F2; background-image: url(assets/felix.jpg)">
+            </div>
+            <div class="flex w-1/2 pl-8 justify-end items-end">
+                <div>
+                    <p class="mb-6">What a detail fanaticé No edge, no surface and no hole diameter save from Felixé eyes and claim for the beauty of feasability. The strings of his technical background hold dearly on him and are in constant dispute with his love for materials, forms and his sensitive consciousness of our material world.</p>
+                    <p>Before he founded crispéid with Jéréme Rétsche in 2017 he applied his competences in mechanical engineering and industrial design in various design focused StartUps where he assisted in developing and producing new consumer products.</p>
+                </div>
+            </div>
+            <div class="absolute top-0 left-0 flex w-full h-full">
+                <div class="flex w-1/2 h-full justify-end items-center pr-2 sans-font">
+                    <span class="text-8xl show" style="color: #75FC4C;">Felix</span>
+                </div>
+                <div class="flex w-1/2 h-full justify-start items-center pl-2 serif-font">
+                    <span class="text-8xl show" style="color: #75FC4C;">Spuhler</span>
+                </div>
+            </div>
+        </div>
+        <div class="relative flex min-h-screen py-20 px-10 bg-white max-w-7xl m-auto">
+            <div class="flex w-1/2 pr-8 justify-end items-end">
+                <div>
+                    <p class="mb-6">Anna understands the brand experience through the art of typography. As an absolute type nerd she is embedded in a field of letterflowers. Grasping for the right one to match her framework, she provokes visual appearances and creates landscapes of communications for people and companies to feel valuable.</p>
+                    <p>With a master in art direction from ecal she knows the boundaries of her craft and where new lands can be found.</p>
+                </div>
+            </div>
+            <div class="w-1/2 pl-8 bg-cover bg-center" style="background-color: #F2F2F2;">
+            </div>
+            <div class="absolute top-0 left-0 flex w-full h-full">
+                <div class="flex w-1/2 h-full justify-end items-center pr-2 sans-font">
+                    <span class="text-8xl show" style="color: #75FC4C;">Anna</span>
+                </div>
+                <div class="flex w-1/2 h-full justify-start items-center pl-2 serif-font">
+                    <span class="text-8xl show" style="color: #75FC4C;">Bitzer</span>
+                </div>
+            </div>
+        </div>
+        <div class="relative flex min-h-screen py-20 px-10 bg-white max-w-7xl m-auto">
+            <div class="w-1/2 pr-8 bg-cover bg-center" style="background-color: #F2F2F2;">
+            </div>
+            <div class="flex w-1/2 pl-8 justify-end items-end">
+                <div>
+                    <p class="mb-6">Daniela is a thoughtful thinker and methodic context analyst. She is on a deep dive into the universe of companies and clearly maps the key aspects for all stakeholders. Daniela holds dearly existing values and competences and builds upon those.</p>
+                    <p>Practical work as a brand designer had brought her into multidisciplinary teams where she soon managed design projects and followed the journeys of brand strategies of international companies.</p>
+                </div>
+            </div>
+            <div class="absolute top-0 left-0 flex w-full h-full">
+                <div class="flex w-1/2 h-full justify-end items-center pr-2 sans-font">
+                    <span class="text-8xl show" style="color: #75FC4C;">Daniela</span>
+                </div>
+                <div class="flex w-1/2 h-full justify-start items-center pl-2 serif-font">
+                    <span class="text-8xl show" style="color: #75FC4C;">Noser</span>
+                </div>
+            </div>
+        </div>
+        <div class="relative flex min-h-screen py-20 px-10 bg-white max-w-7xl m-auto">
+            <div class="flex w-1/2 pr-8 justify-end items-end">
+                <div>
+                    <p class="mb-6">Jérémeés interests are as broad as there are business op- portunities. He believes that only well coordinated corporate assets can unfold existing potential and therefore lead to market success. He is merging the complex clutter of business with the creation of new ventures and their forms. Doing the right thing in the right time keep his projects compact goal oriented.</p>
+                    <p>Coming off the path of the work as a commercial clerk, Jéréme wandered the fields of creativity and founded crispéid with Felix Spuhler after finishing his BA in industrial design from ecal.</p>
+                </div>
+            </div>
+            <div class="w-1/2 pl-8 bg-cover bg-center" style="background-color: #F2F2F2; background-image: url(assets/jerome.jpg)">
+            </div>
+            <div class="absolute top-0 left-0 flex w-full h-full">
+                <div class="flex w-1/2 h-full justify-end items-center pr-2 sans-font">
+                    <span class="text-8xl show" style="color: #75FC4C;">Jerome</span>
+                </div>
+                <div class="flex w-1/2 h-full justify-start items-center pl-2 serif-font">
+                    <span class="text-8xl show" style="color: #75FC4C;">Rütsche</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="fixed bottom-0 w-full text-center pb-8 z-50">
+        <a href="mailto:info@crisp.ch" class="text-3xl uppercase" style="color: #75FC4C; letter-spacing: .75rem;">Greet</a>
+    </footer>
+
+<script>
+
+    let sans_index = 0,
+        sans = document.querySelectorAll('.sans > *'),
+        serif_index = 0,
+        serif = document.querySelectorAll('.serif > *');
+
+    let upping = false, downing = false, meeting = false;
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        document.querySelector('#lets-meet').addEventListener('click', evt => {
+            document.querySelector('#meet').classList.toggle('hidden');
+        })
+
+        sans[sans_index].classList.add('show');
+        serif[serif_index].classList.add('show');
+
+        window.addEventListener('wheel', wheeling);
+        window.addEventListener('mousewheel', wheeling);
+        window.addEventListener('DOMMouseScroll', wheeling);
+
+    });
+
+    function wheeling(evt) {
+        
+        if (evt.type == "wheel") supportsWheel = true;
+        else if (supportsWheel) return;
+
+        var delta = ((evt.deltaY || -evt.wheelDelta || evt.detail) >> 10) || 1;
+
+        if (delta < 0) {
+            up();
+        } else if (delta > 0) {
+            down();
+        }
+
+        setTimeout(() => {
+            document.querySelector('#arrows').classList.add('opacity-0');
+        }, 500);
+    }
+
+    function up() {
+        if(! upping) {
+            upping = true;
+
+            let current = sans[sans_index];
+
+            current.classList.remove('show');
+            current.classList.add('gone');
+            sans_index++;
+
+            if(sans_index >= sans.length) {
+                sans_index = 0;
+            }
+            
+            sans[sans_index].classList.add('show');
+
+            setTimeout(() => {
+                current.classList.remove('gone');
+                upping = false;
+            }, 500);
+        }
+    }
+
+    function down() {
+        if(! downing) {
+            downing = true;
+
+            let current = serif[serif_index];
+
+            current.classList.remove('show');
+            current.classList.add('gone');
+            serif_index++;
+
+            if(serif_index >= serif.length) {
+                serif_index = 0;
+            }
+            
+            serif[serif_index].classList.add('show');
+
+            setTimeout(() => {
+                current.classList.remove('gone');
+                downing = false;
+            }, 500);
+        }
+    }
+
+</script>
+    
+</body>
+</html>
