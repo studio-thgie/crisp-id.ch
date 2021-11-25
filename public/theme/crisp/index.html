@@ -14,6 +14,10 @@
 
     <style>
 
+        html, body {
+        overscroll-behavior-y: none;
+        }
+
         .sans, .sans-font, h1, h2, h3, p, ul, a {
             font-family: 'Open Sans', sans-serif;
         }
@@ -30,24 +34,24 @@
         }
         .sans > * {
             transform-origin: -100% 50%;
-            transform: translateY(-200%) rotate(-25deg);
+            transform: translateY(-200%) /*rotate(-25deg)*/;
         }
         .serif > * {
             transform-origin: 100% 50%;
-            transform: translateY(200%) rotate(-25deg);
+            transform: translateY(200%) /*rotate(-25deg)*/;
         }
         .sans > *.show,
         .serif > *.show {
             opacity: 1;
-            transform: translateY(0) rotate(0);
+            transform: translateY(0) /*rotate(0)*/;
             transition: transform .25s ease-out, opacity .25s ease-out;
         }
         .sans > *.gone {
-            transform: translateY(200%) rotate(25deg);
+            transform: translateY(200%) /*rotate(25deg)*/;
             opacity: 0;
         }
         .serif > *.gone {
-            transform: translateY(-200%) rotate(25deg);
+            transform: translateY(-200%) /*rotate(25deg)*/;
             opacity: 0;
         }
 
@@ -193,17 +197,23 @@
         if (evt.type == "wheel") supportsWheel = true;
         else if (supportsWheel) return;
 
-        var delta = ((evt.deltaY || -evt.wheelDelta || evt.detail) >> 10) || 1;
+        let delta_raw = (evt.deltaY || -evt.wheelDelta || evt.detail);
 
-        if (delta < 0) {
-            up();
-        } else if (delta > 0) {
-            down();
+        if(delta_raw > 5 || delta_raw < -5) {
+
+            var delta = (delta_raw >> 10) || 1;
+
+            if (delta < 0) {
+                up();
+            } else if (delta > 0) {
+                down();
+            }
+
+            setTimeout(() => {
+                document.querySelector('#arrows').classList.add('opacity-0');
+            }, 500);
+            
         }
-
-        setTimeout(() => {
-            document.querySelector('#arrows').classList.add('opacity-0');
-        }, 500);
     }
 
     function up() {
