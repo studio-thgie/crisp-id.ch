@@ -1,0 +1,48 @@
+html, body {
+    overscroll-behavior-y: none;
+}
+
+.sans, .sans-font, h1, h2, h3 {
+    font-family: 'Gustavo', sans-serif;
+}
+p, ul, a {
+    font-family: 'Object Sans', sans-serif;
+}
+.serif, .serif-font{
+    font-family: 'Sometimes Times BETA', serif;
+}
+
+/* */
+.sans > *,
+.serif > * {
+    position: absolute;
+    opacity: 0;
+    transition: transform .25s ease-in, opacity .25s ease-in;
+}
+.sans > * {
+    transform-origin: -100% 50%;
+    transform: translateY(-200%) /*rotate(-25deg)*/;
+}
+.serif > * {
+    transform-origin: 100% 50%;
+    transform: translateY(200%) /*rotate(-25deg)*/;
+}
+.sans > *.show,
+.serif > *.show {
+    opacity: 1;
+    transition: transform .25s ease-out, opacity .25s ease-out;
+}
+.sans > *.show {
+    transform: translateY(-10px); /* mintor correction because of different font rendering */
+}
+.serif > *.show {
+    transform: translateY(0) /*rotate(0)*/;
+}
+.sans > *.gone {
+    transform: translateY(200%) /*rotate(25deg)*/;
+    opacity: 0;
+}
+.serif > *.gone {
+    transform: translateY(-200%) /*rotate(25deg)*/;
+    opacity: 0;
+}

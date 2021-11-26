@@ -8,65 +8,13 @@
 
     <link rel="stylesheet" href="{{ asset('assets/fonts/stylesheet.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/base.css') }}">
-
-    <style>
-
-        html, body {
-        overscroll-behavior-y: none;
-        }
-
-        .sans, .sans-font, h1, h2, h3 {
-            font-family: 'Gustavo', sans-serif;
-        }
-        p, ul, a {
-            font-family: 'Object Sans', sans-serif;
-        }
-        .serif, .serif-font{
-            font-family: 'Sometimes Times BETA', serif;
-        }
-
-        /* */
-        .sans > *,
-        .serif > * {
-            position: absolute;
-            opacity: 0;
-            transition: transform .25s ease-in, opacity .25s ease-in;
-        }
-        .sans > * {
-            transform-origin: -100% 50%;
-            transform: translateY(-200%) /*rotate(-25deg)*/;
-        }
-        .serif > * {
-            transform-origin: 100% 50%;
-            transform: translateY(200%) /*rotate(-25deg)*/;
-        }
-        .sans > *.show,
-        .serif > *.show {
-            opacity: 1;
-            transition: transform .25s ease-out, opacity .25s ease-out;
-        }
-        .sans > *.show {
-            transform: translateY(-12px); /* mintor correction because of different font rendering */
-        }
-        .serif > *.show {
-            transform: translateY(0) /*rotate(0)*/;
-        }
-        .sans > *.gone {
-            transform: translateY(200%) /*rotate(25deg)*/;
-            opacity: 0;
-        }
-        .serif > *.gone {
-            transform: translateY(-200%) /*rotate(25deg)*/;
-            opacity: 0;
-        }
-
-    </style>
+    <link rel="stylesheet" href="{{ asset('assets/crisp.css') }}">
 
 </head>
 <body>
 
     <header class="fixed top-0 w-full text-center pt-8 z-50">
-        <button type="button" id="lets-meet" class="text-3xl uppercase" style="color: #75FC4C; letter-spacing: .75rem;">Meet</button>
+        <button type="button" id="lets-meet" class="text-2xl uppercase sans-font" style="color: #00FFBE; letter-spacing: .75rem;">Meet</button>
     </header>
 
     <div class="fixed top-0 w-screen h-screen overflow-hidden">
@@ -95,6 +43,11 @@
     </div>
 
     <div id="meet" class="hidden z-20">
+        <div class="relative flex min-h-screen py-20 bg-white">
+            <div class="flex bg-cover bg-center justify-center items-center" style="background-image: url({{ asset('assets/images/crisp-id_Felix Spuhler_Waldweg_Web.jpg') }});">
+                <img src="{{ asset('assets/images/CRI_Wordmark_RGB_seafoam.svg') }}" alt="crisp id wordmark">
+            </div>
+        </div>
         <div class="relative flex min-h-screen py-20 px-10 bg-white max-w-7xl m-auto">
             <div class="w-1/2 pr-8 bg-cover bg-center" style="background-color: #F2F2F2; background-image: url(assets/felix.jpg)">
             </div>
@@ -106,10 +59,10 @@
             </div>
             <div class="absolute top-0 left-0 flex w-full h-full">
                 <div class="flex w-1/2 h-full justify-end items-center pr-2 sans-font">
-                    <span class="text-8xl show" style="color: #75FC4C;">Felix</span>
+                    <span class="text-8xl show" style="color: #00FFBE;">Felix</span>
                 </div>
                 <div class="flex w-1/2 h-full justify-start items-center pl-2 serif-font">
-                    <span class="text-8xl show" style="color: #75FC4C;">Spuhler</span>
+                    <span class="text-8xl show" style="color: #00FFBE;">Spuhler</span>
                 </div>
             </div>
         </div>
@@ -124,10 +77,10 @@
             </div>
             <div class="absolute top-0 left-0 flex w-full h-full">
                 <div class="flex w-1/2 h-full justify-end items-center pr-2 sans-font">
-                    <span class="text-8xl show" style="color: #75FC4C;">Anna</span>
+                    <span class="text-8xl show" style="color: #00FFBE;">Anna</span>
                 </div>
                 <div class="flex w-1/2 h-full justify-start items-center pl-2 serif-font">
-                    <span class="text-8xl show" style="color: #75FC4C;">Bitzer</span>
+                    <span class="text-8xl show" style="color: #00FFBE;">Bitzer</span>
                 </div>
             </div>
         </div>
@@ -142,10 +95,10 @@
             </div>
             <div class="absolute top-0 left-0 flex w-full h-full">
                 <div class="flex w-1/2 h-full justify-end items-center pr-2 sans-font">
-                    <span class="text-8xl show" style="color: #75FC4C;">Daniela</span>
+                    <span class="text-8xl show" style="color: #00FFBE;">Daniela</span>
                 </div>
                 <div class="flex w-1/2 h-full justify-start items-center pl-2 serif-font">
-                    <span class="text-8xl show" style="color: #75FC4C;">Noser</span>
+                    <span class="text-8xl show" style="color: #00FFBE;">Noser</span>
                 </div>
             </div>
         </div>
@@ -160,17 +113,17 @@
             </div>
             <div class="absolute top-0 left-0 flex w-full h-full">
                 <div class="flex w-1/2 h-full justify-end items-center pr-2 sans-font">
-                    <span class="text-8xl show" style="color: #75FC4C;">Jerome</span>
+                    <span class="text-8xl show" style="color: #00FFBE;">Jerome</span>
                 </div>
                 <div class="flex w-1/2 h-full justify-start items-center pl-2 serif-font">
-                    <span class="text-8xl show" style="color: #75FC4C;">Rütsche</span>
+                    <span class="text-8xl show" style="color: #00FFBE;">Rütsche</span>
                 </div>
             </div>
         </div>
     </div>
 
     <footer class="fixed bottom-0 w-full text-center pb-8 z-50">
-        <a href="mailto:info@crisp.ch" class="text-3xl uppercase" style="color: #75FC4C; letter-spacing: .75rem;">Greet</a>
+        <a href="mailto:info@crisp.ch" class="text-2xl uppercase sans-font" style="color: #00FFBE; letter-spacing: .75rem;">Greet</a>
     </footer>
 
 <script>
