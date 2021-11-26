@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>crisp landing 2022</title>
+    <title>{{ record.title }}</title>
 
     <link rel="stylesheet" href="{{ asset('assets/fonts/stylesheet.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/base.css') }}">
@@ -24,27 +24,21 @@
         </div>
         <main class="flex w-screen h-screen">
             <div class="flex w-1/2 h-full justify-end items-center pr-2 sans">
-                <span class="text-8xl">crisp</span>
-                <span class="text-8xl">create</span>
-                <span class="text-8xl">rebellious</span>
-                <span class="text-8xl">intimate</span>
-                <span class="text-8xl">sustainable</span>
-                <span class="text-8xl">pertinent</span>
+                {% for term in record.terms_left|split(',') %}
+                    <span class="text-8xl">{{ term }}</span>
+                {% endfor %}
             </div>
             <div class="flex w-1/2 h-full justify-start items-center pl-2 serif">
-                <span class="text-8xl">id</span>
-                <span class="text-8xl">identities</span>
-                <span class="text-8xl">brands</span>
-                <span class="text-8xl">strategies</span>
-                <span class="text-8xl">business</span>
-                <span class="text-8xl">products</span>
+                {% for term in record.terms_right|split(',') %}
+                    <span class="text-8xl">{{ term }}</span>
+                {% endfor %}
             </div>
         </main>
     </div>
 
     <div id="meet" class="hidden z-20">
         <div class="relative flex min-h-screen py-20 bg-white">
-            <div class="flex bg-cover bg-center justify-center items-center w-full" style="background-image: url('{{ asset('assets/images/crisp-id_Felix Spuhler_Waldweg_Web.jpg') }}'); max-height: 640px;">
+            <div class="flex bg-cover bg-center justify-center items-center w-full" style="background-image: url('{{ record.header_image|thumbnail(1280) }}') }}'); min-height: 640px;">
                 <img style="max-width: 920px;" src="{{ asset('assets/images/CRI_Wordmark_RGB_seafoam.svg') }}" alt="crisp id wordmark">
             </div>
         </div>
