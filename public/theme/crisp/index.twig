@@ -28,6 +28,7 @@
         /* */
         .sans > *,
         .serif > * {
+            position: absolute;
             opacity: 0;
             transition: transform .25s ease-in, opacity .25s ease-in;
         }
@@ -45,7 +46,7 @@
             transition: transform .25s ease-out, opacity .25s ease-out;
         }
         .sans > *.show {
-            transform: translateY(-12px) /*rotate(0)*/; /* mintor correction because of different font rendering */
+            transform: translateY(-12px); /* mintor correction because of different font rendering */
         }
         .serif > *.show {
             transform: translateY(0) /*rotate(0)*/;
