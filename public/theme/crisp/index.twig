@@ -45,6 +45,9 @@
             transform: translateY(0) /*rotate(0)*/;
             transition: transform .25s ease-out, opacity .25s ease-out;
         }
+        .sans > *.show {
+            transform: translateY(-12px) /*rotate(0)*/; /* mintor correction because of different font rendering */
+        }
         .sans > *.gone {
             transform: translateY(200%) /*rotate(25deg)*/;
             opacity: 0;
