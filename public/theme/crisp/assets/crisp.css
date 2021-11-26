@@ -12,6 +12,9 @@ p, ul, a {
 .serif, .serif-font{
     font-family: 'Sometimes Times BETA', serif;
 }
+.content p, ul, a, span {
+    margin-bottom: 1rem;
+}
 
 /* carousell */
 .sans > *,
@@ -47,8 +50,12 @@ p, ul, a {
     transform: translateY(-200%);
     opacity: 0;
 }
+
 .color-green {
     color: #00FFBE;
+}
+.color-purple {
+    color: #6400F0;
 }
 
 /* ui */

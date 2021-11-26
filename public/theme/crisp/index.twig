@@ -19,8 +19,12 @@
 
     <div class="fixed top-0 w-screen h-screen overflow-hidden">
         <div id="arrows" class="fixed flex flex-col w-full h-full justify-center items-center text-xl transition">
-            <span class="mb-40">&#8593;</span>
-            <span class="mt-40">&#8595;</span>
+            <span class="mb-40">
+                <img width="20" src="{{ asset('assets/images/crisp-id_Landingpage_Arrow.svg') }}" alt="Arrow Up">
+            </span>
+            <span class="mt-40">
+                <img width="20" class="transform rotate-180" src="{{ asset('assets/images/crisp-id_Landingpage_Arrow.svg') }}" alt="Arrow Down">
+            </span>
         </div>
         <main class="flex w-screen h-screen">
             <div class="flex w-1/2 h-full justify-end items-center pr-2 sans">
@@ -42,78 +46,35 @@
                 <img style="max-width: 920px;" src="{{ asset('assets/images/CRI_Wordmark_RGB_seafoam.svg') }}" alt="crisp id wordmark">
             </div>
         </div>
-        <div class="relative flex min-h-screen py-20 px-10 bg-white max-w-7xl m-auto">
-            <div class="w-1/2 pr-8 bg-cover bg-center" style="background-color: #F2F2F2; background-image: url(assets/felix.jpg)">
-            </div>
-            <div class="flex w-1/2 pl-8 justify-end items-end">
-                <div>
-                    <p class="mb-6">What a detail fanaticé No edge, no surface and no hole diameter save from Felixé eyes and claim for the beauty of feasability. The strings of his technical background hold dearly on him and are in constant dispute with his love for materials, forms and his sensitive consciousness of our material world.</p>
-                    <p>Before he founded crispéid with Jéréme Rétsche in 2017 he applied his competences in mechanical engineering and industrial design in various design focused StartUps where he assisted in developing and producing new consumer products.</p>
-                </div>
-            </div>
-            <div class="absolute top-0 left-0 flex w-full h-full">
-                <div class="flex w-1/2 h-full justify-end items-center pr-2 sans-font">
-                    <span class="text-8xl show" style="color: #00FFBE;">Felix</span>
-                </div>
-                <div class="flex w-1/2 h-full justify-start items-center pl-2 serif-font">
-                    <span class="text-8xl show" style="color: #00FFBE;">Spuhler</span>
+
+        <div class="relative flex min-h-screen justify-center items-center  bg-white">
+            <div class="max-w-3xl">
+                <h2 class="sans-font text-center text-3xl mb-8 uppercase">{{ record.about_title }}</h2>
+                <div class="content text-xl">
+                    {{ record.about|raw }}
                 </div>
             </div>
         </div>
+
+        {% setcontent people = 'people' %}
+
+        {% for person in people %}
         <div class="relative flex min-h-screen py-20 px-10 bg-white max-w-7xl m-auto">
-            <div class="flex w-1/2 pr-8 justify-end items-end">
-                <div>
-                    <p class="mb-6">Anna understands the brand experience through the art of typography. As an absolute type nerd she is embedded in a field of letterflowers. Grasping for the right one to match her framework, she provokes visual appearances and creates landscapes of communications for people and companies to feel valuable.</p>
-                    <p>With a master in art direction from ecal she knows the boundaries of her craft and where new lands can be found.</p>
-                </div>
+            <div class="w-1/2 pr-8 bg-cover bg-center" style="background-color: #F2F2F2; background-image: url('{{ person.image|thumbnail(960) }}')">
             </div>
-            <div class="w-1/2 pl-8 bg-cover bg-center" style="background-color: #F2F2F2;">
-            </div>
-            <div class="absolute top-0 left-0 flex w-full h-full">
-                <div class="flex w-1/2 h-full justify-end items-center pr-2 sans-font">
-                    <span class="text-8xl show" style="color: #00FFBE;">Anna</span>
-                </div>
-                <div class="flex w-1/2 h-full justify-start items-center pl-2 serif-font">
-                    <span class="text-8xl show" style="color: #00FFBE;">Bitzer</span>
+            <div class="flex flex-col w-1/2 pl-8 justify-end">
+                <h3 class="mb-10">
+                    <span class="text-7xl lowercase block mb-2 sans-font" >{{ person.first_name }}</span>
+                    <span class="text-7xl lowercase block serif-font">{{ person.last_name }}</span>
+                </h3>
+                <span class="block color-purple font-sans text-sm">{{ person.description }}</span>
+                <div class="content">
+                    {{ person.content|raw }}
                 </div>
             </div>
         </div>
-        <div class="relative flex min-h-screen py-20 px-10 bg-white max-w-7xl m-auto">
-            <div class="w-1/2 pr-8 bg-cover bg-center" style="background-color: #F2F2F2;">
-            </div>
-            <div class="flex w-1/2 pl-8 justify-end items-end">
-                <div>
-                    <p class="mb-6">Daniela is a thoughtful thinker and methodic context analyst. She is on a deep dive into the universe of companies and clearly maps the key aspects for all stakeholders. Daniela holds dearly existing values and competences and builds upon those.</p>
-                    <p>Practical work as a brand designer had brought her into multidisciplinary teams where she soon managed design projects and followed the journeys of brand strategies of international companies.</p>
-                </div>
-            </div>
-            <div class="absolute top-0 left-0 flex w-full h-full">
-                <div class="flex w-1/2 h-full justify-end items-center pr-2 sans-font">
-                    <span class="text-8xl show" style="color: #00FFBE;">Daniela</span>
-                </div>
-                <div class="flex w-1/2 h-full justify-start items-center pl-2 serif-font">
-                    <span class="text-8xl show" style="color: #00FFBE;">Noser</span>
-                </div>
-            </div>
-        </div>
-        <div class="relative flex min-h-screen py-20 px-10 bg-white max-w-7xl m-auto">
-            <div class="flex w-1/2 pr-8 justify-end items-end">
-                <div>
-                    <p class="mb-6">Jérémeés interests are as broad as there are business op- portunities. He believes that only well coordinated corporate assets can unfold existing potential and therefore lead to market success. He is merging the complex clutter of business with the creation of new ventures and their forms. Doing the right thing in the right time keep his projects compact goal oriented.</p>
-                    <p>Coming off the path of the work as a commercial clerk, Jéréme wandered the fields of creativity and founded crispéid with Felix Spuhler after finishing his BA in industrial design from ecal.</p>
-                </div>
-            </div>
-            <div class="w-1/2 pl-8 bg-cover bg-center" style="background-color: #F2F2F2; background-image: url(assets/jerome.jpg)">
-            </div>
-            <div class="absolute top-0 left-0 flex w-full h-full">
-                <div class="flex w-1/2 h-full justify-end items-center pr-2 sans-font">
-                    <span class="text-8xl show" style="color: #00FFBE;">Jerome</span>
-                </div>
-                <div class="flex w-1/2 h-full justify-start items-center pl-2 serif-font">
-                    <span class="text-8xl show" style="color: #00FFBE;">Rütsche</span>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
+
     </div>
 
     <footer class="fixed bottom-0 w-full text-center pb-6 z-50">
