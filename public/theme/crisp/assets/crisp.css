@@ -3,14 +3,15 @@ html, body {
 }
 
 /* fonts */
-.sans, .sans-font, h1, h2, h3 {
+.sans, .sans-font, h1, h2, h3, .sans-font p {
     font-family: 'Gustavo', sans-serif;
 }
 p, ul, a {
     font-family: 'Object Sans', sans-serif;
 }
-.serif, .serif-font{
+em, .serif, .serif-font {
     font-family: 'Sometimes Times BETA', serif;
+    font-style: normal;
 }
 .content p, ul, a, span {
     margin-bottom: 1rem;
@@ -58,7 +59,28 @@ p, ul, a {
     color: #6400F0;
 }
 
+@media (max-width: 768px) {
+    .serif > * {
+        transform: translateY(200%) translate(-8px);
+    }
+    .serif > *.show {
+        transform: translateY(0) translateX(-8px);
+    }
+    .serif > *.gone {
+        transform: translateY(-200%) translate(-8px);
+    }
+}
+
 /* ui */
+#meet, #greet {
+    visibility: visible;
+    opacity: 1;
+    transition: .25s;
+}
+#meet.invisible, #greet.invisible {
+    visibility: hidden;
+    opacity: 0;
+}
 .cta {
     display: inline-block;
     direction: rtl;

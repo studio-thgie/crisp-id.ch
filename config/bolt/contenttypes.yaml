@@ -37,6 +37,9 @@ homepage:
         about:
             type: redactor
             label: About Inhalt
+        greet:
+            type: redactor
+            label: Greet Inhalt
         slug:
             type: slug
             uses: title
@@ -55,6 +58,12 @@ people:
     singular_name: Person
     title_format: "{first_name} {last_name}"
     fields:
+        position:
+            type: number
+            class: large
+            variant: inline
+        avatar:
+            type: image
         first_name:
             type: text
             class: large

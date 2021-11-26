@@ -1,3 +1,5 @@
+{% setcontent people = 'people' %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,59 +28,83 @@
                 <img width="20" class="transform rotate-180" src="{{ asset('assets/images/crisp-id_Landingpage_Arrow.svg') }}" alt="Arrow Down">
             </span>
         </div>
-        <main class="flex w-screen h-screen">
-            <div class="flex w-1/2 h-full justify-end items-center pr-2 sans">
+        <main class="flex flex-col md:flex-row w-screen h-screen">
+            <div class="flex w-full md:w-1/2 h-full justify-center items-end md:justify-end md:items-center pr-2 sans text-5xl md:text-8xl">
                 {% for term in record.terms_left|split(',') %}
-                    <span class="text-8xl">{{ term }}</span>
+                    <span class="mb-0">{{ term }}</span>
                 {% endfor %}
             </div>
-            <div class="flex w-1/2 h-full justify-start items-center pl-2 serif">
+            <div class="flex w-full md:w-1/2 h-full justify-center items-star md:justify-start md:items-center pl-2 serif text-5xl md:text-8xl">
                 {% for term in record.terms_right|split(',') %}
-                    <span class="text-8xl">{{ term }}</span>
+                    <span class="mb-0">{{ term }}</span>
                 {% endfor %}
             </div>
         </main>
     </div>
 
-    <div id="meet" class="hidden z-20">
-        <div class="relative flex items-center min-h-screen py-20 bg-white">
-            <div class="flex bg-cover bg-center justify-center items-center w-full" style="background-image: url('{{ record.header_image|thumbnail(1280) }}'); min-height: 640px; min-height: 580px;">
-                <img style="max-width: 920px;" src="{{ asset('assets/images/CRI_Wordmark_RGB_seafoam.svg') }}" alt="crisp id wordmark">
+    <div id="meet" class="fixed top-0 w-full h-screen invisible z-20 overflow-scroll">
+        <div>
+            <div class="relative flex items-center min-h-screen py-20 bg-white">
+                <div class="flex bg-cover bg-center justify-center items-center w-full" style="background-image: url('{{ record.header_image|thumbnail(1280) }}'); min-height: 640px; min-height: 580px;">
+                    <img style="max-width: 920px;" src="{{ asset('assets/images/CRI_Wordmark_RGB_seafoam.svg') }}" alt="crisp id wordmark">
+                </div>
             </div>
-        </div>
 
-        <div class="relative flex min-h-screen justify-center items-center  bg-white">
-            <div class="max-w-3xl">
-                <h2 class="sans-font text-center text-3xl mb-8 uppercase">{{ record.about_title }}</h2>
-                <div class="content text-xl">
-                    {{ record.about|raw }}
+            <div class="relative flex min-h-screen justify-center items-center  bg-white">
+                <div class="max-w-3xl">
+                    <div class="flex mb-16 justify-center">
+                        {% for person in people|order('position') %}
+                            <span class="mx-8">
+                                <img width="64" height="64" src="{{ person.avatar }}" alt="{{ person.first_name }} {{ person.last_name }}">
+                            </span>
+                        {% endfor %}
+                    </div>
+                    <h2 class="sans-font text-center text-3xl mb-8 uppercase">{{ record.about_title }}</h2>
+                    <div class="content text-xl">
+                        {{ record.about|raw }}
+                    </div>
+                </div>
+            </div>
+
+            {% for person in people|order('position') %}
+            <div class="relative flex min-h-screen py-20 px-10 bg-white max-w-7xl m-auto">
+                <div class="w-1/2 pr-8 bg-cover bg-center" style="background-color: #F2F2F2; background-image: url('{{ person.image|thumbnail(960) }}')">
+                </div>
+                <div class="relative flex flex-col w-1/2 pl-8 justify-end">
+                    <span class="absolute top-8">
+                        <img width="64" height="64" src="{{ person.avatar }}" alt="{{ person.first_name }} {{ person.last_name }}">
+                    </span>
+                    <h3 class="mb-10">
+                        <span class="text-7xl lowercase block mb-2 sans-font" >{{ person.first_name }}</span>
+                        <span class="text-7xl lowercase block serif-font">{{ person.last_name }}</span>
+                    </h3>
+                    <span class="block color-purple font-sans text-sm">{{ person.description }}</span>
+                    <div class="content">
+                        {{ person.content|raw }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="greet" class="fixed top-0 w-full min-h-screen invisible z-30">
+        <div>
+            <div class="relative flex min-h-screen justify-center items-center  bg-white">
+                <div class="max-w-5xl">
+                    <div class="mb-8">
+                        <img class="mx-auto" style="max-width: 220px;" src="{{ asset('assets/images/CRI_Wordmark_RGB_seafoam.svg') }}" alt="crisp id wordmark">
+                    </div>
+                    <div class="content sans-font text-5xl leading-tight text-center">
+                        {{ record.greet|raw }}
+                    </div>
                 </div>
             </div>
         </div>
-
-        {% setcontent people = 'people' %}
-
-        {% for person in people %}
-        <div class="relative flex min-h-screen py-20 px-10 bg-white max-w-7xl m-auto">
-            <div class="w-1/2 pr-8 bg-cover bg-center" style="background-color: #F2F2F2; background-image: url('{{ person.image|thumbnail(960) }}')">
-            </div>
-            <div class="flex flex-col w-1/2 pl-8 justify-end">
-                <h3 class="mb-10">
-                    <span class="text-7xl lowercase block mb-2 sans-font" >{{ person.first_name }}</span>
-                    <span class="text-7xl lowercase block serif-font">{{ person.last_name }}</span>
-                </h3>
-                <span class="block color-purple font-sans text-sm">{{ person.description }}</span>
-                <div class="content">
-                    {{ person.content|raw }}
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-
     </div>
 
     <footer class="fixed bottom-0 w-full text-center pb-6 z-50">
-        <a href="mailto:info@crisp.ch" class="text-2xl uppercase sans-font color-green cta">Greet</a>
+        <button type="button" id="lets-greet" class="text-2xl uppercase sans-font color-green cta">Greet</button>
     </footer>
 
     <script src="{{ asset('assets/crisp.js') }}"></script>

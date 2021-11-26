@@ -8,8 +8,19 @@ let upping = false, downing = false, meeting = false;
 document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('#lets-meet').addEventListener('click', evt => {
+        document.querySelector('#lets-greet').classList.remove('active');
+        document.querySelector('#greet').classList.add('invisible');
+
         document.querySelector('#lets-meet').classList.toggle('active');
-        document.querySelector('#meet').classList.toggle('hidden');
+        document.querySelector('#meet').classList.toggle('invisible');
+    })
+
+    document.querySelector('#lets-greet').addEventListener('click', evt => {
+        document.querySelector('#lets-meet').classList.remove('active');
+        document.querySelector('#meet').classList.add('invisible');
+
+        document.querySelector('#lets-greet').classList.toggle('active');
+        document.querySelector('#greet').classList.toggle('invisible');
     })
 
     sans[sans_index].classList.add('show');
