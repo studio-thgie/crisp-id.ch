@@ -46,3 +46,11 @@ p, ul, a {
     transform: translateY(-200%) /*rotate(25deg)*/;
     opacity: 0;
 }
+.color-green {
+    color: #00FFBE;
+}
+#lets-meet.active {
+    display: inline-block;
+    color: black;
+    border-bottom: 1px solid #00FFBE;
+}

@@ -13,8 +13,8 @@
 </head>
 <body>
 
-    <header class="fixed top-0 w-full text-center pt-8 z-50">
-        <button type="button" id="lets-meet" class="text-2xl uppercase sans-font" style="color: #00FFBE; letter-spacing: .75rem;">Meet</button>
+    <header class="fixed top-0 w-full text-center pt-6 z-50">
+        <button type="button" id="lets-meet" class="text-2xl uppercase sans-font color-green" style=" letter-spacing: .75rem;">Meet</button>
     </header>
 
     <div class="fixed top-0 w-screen h-screen overflow-hidden">
@@ -44,7 +44,7 @@
 
     <div id="meet" class="hidden z-20">
         <div class="relative flex min-h-screen py-20 bg-white">
-            <div class="flex bg-cover bg-center justify-center items-center w-full" style="background-image: url({{ asset('assets/images/crisp-id_Felix Spuhler_Waldweg_Web.jpg') }}); max-height: 640px;">
+            <div class="flex bg-cover bg-center justify-center items-center w-full" style="background-image: url("{{ asset('assets/images/crisp-id_Felix Spuhler_Waldweg_Web.jpg') }}"); max-height: 640px;">
                 <img style="max-width: 920px;" src="{{ asset('assets/images/CRI_Wordmark_RGB_seafoam.svg') }}" alt="crisp id wordmark">
             </div>
         </div>
@@ -122,105 +122,11 @@
         </div>
     </div>
 
-    <footer class="fixed bottom-0 w-full text-center pb-8 z-50">
-        <a href="mailto:info@crisp.ch" class="text-2xl uppercase sans-font" style="color: #00FFBE; letter-spacing: .75rem;">Greet</a>
+    <footer class="fixed bottom-0 w-full text-center pb-6 z-50">
+        <a href="mailto:info@crisp.ch" class="text-2xl uppercase sans-font color-green" style="letter-spacing: .75rem;">Greet</a>
     </footer>
 
-<script>
+    <script src="{{ asset('assets/crisp.js') }}"></script>
 
-    let sans_index = 0,
-        sans = document.querySelectorAll('.sans > *'),
-        serif_index = 0,
-        serif = document.querySelectorAll('.serif > *');
-
-    let upping = false, downing = false, meeting = false;
-
-    document.addEventListener('DOMContentLoaded', () => {
-
-        document.querySelector('#lets-meet').addEventListener('click', evt => {
-            document.querySelector('#meet').classList.toggle('hidden');
-        })
-
-        sans[sans_index].classList.add('show');
-        serif[serif_index].classList.add('show');
-
-        window.addEventListener('wheel', wheeling);
-        window.addEventListener('mousewheel', wheeling);
-        window.addEventListener('DOMMouseScroll', wheeling);
-
-    });
-
-    function wheeling(evt) {
-        
-        if (evt.type == "wheel") supportsWheel = true;
-        else if (supportsWheel) return;
-
-        let delta_raw = (evt.deltaY || -evt.wheelDelta || evt.detail);
-
-        if(delta_raw > 5 || delta_raw < -5) {
-
-            var delta = (delta_raw >> 10) || 1;
-
-            if (delta < 0) {
-                up();
-            } else if (delta > 0) {
-                down();
-            }
-
-            setTimeout(() => {
-                document.querySelector('#arrows').classList.add('opacity-0');
-            }, 500);
-            
-        }
-    }
-
-    function up() {
-        if(! upping) {
-            upping = true;
-
-            let current = sans[sans_index];
-
-            current.classList.remove('show');
-            current.classList.add('gone');
-            sans_index++;
-
-            if(sans_index >= sans.length) {
-                sans_index = 0;
-            }
-            
-            sans[sans_index].classList.add('show');
-
-            setTimeout(() => {
-                current.classList.remove('gone');
-                upping = false;
-            }, 500);
-        }
-    }
-
-    function down() {
-        if(! downing) {
-            downing = true;
-
-            let current = serif[serif_index];
-
-            current.classList.remove('show');
-            current.classList.add('gone');
-            serif_index++;
-
-            if(serif_index >= serif.length) {
-                serif_index = 0;
-            }
-            
-            serif[serif_index].classList.add('show');
-
-            setTimeout(() => {
-                current.classList.remove('gone');
-                downing = false;
-            }, 500);
-        }
-    }
-
-</script>
-    
 </body>
 </html>
