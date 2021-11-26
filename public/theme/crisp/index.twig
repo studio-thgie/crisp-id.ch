@@ -14,7 +14,7 @@
 <body>
 
     <header class="fixed top-0 w-full text-center pt-6 z-50">
-        <button type="button" id="lets-meet" class="text-2xl uppercase sans-font color-green" style=" letter-spacing: .75rem;">Meet</button>
+        <button type="button" id="lets-meet" class="text-2xl uppercase sans-font color-green cta">Meet</button>
     </header>
 
     <div class="fixed top-0 w-screen h-screen overflow-hidden">
@@ -44,7 +44,7 @@
 
     <div id="meet" class="hidden z-20">
         <div class="relative flex min-h-screen py-20 bg-white">
-            <div class="flex bg-cover bg-center justify-center items-center w-full" style="background-image: url("{{ asset('assets/images/crisp-id_Felix Spuhler_Waldweg_Web.jpg') }}"); max-height: 640px;">
+            <div class="flex bg-cover bg-center justify-center items-center w-full" style="background-image: url('{{ asset('assets/images/crisp-id_Felix Spuhler_Waldweg_Web.jpg') }}'); max-height: 640px;">
                 <img style="max-width: 920px;" src="{{ asset('assets/images/CRI_Wordmark_RGB_seafoam.svg') }}" alt="crisp id wordmark">
             </div>
         </div>
@@ -123,7 +123,7 @@
     </div>
 
     <footer class="fixed bottom-0 w-full text-center pb-6 z-50">
-        <a href="mailto:info@crisp.ch" class="text-2xl uppercase sans-font color-green" style="letter-spacing: .75rem;">Greet</a>
+        <a href="mailto:info@crisp.ch" class="text-2xl uppercase sans-font color-green cta">Greet</a>
     </footer>
 
     <script src="{{ asset('assets/crisp.js') }}"></script>

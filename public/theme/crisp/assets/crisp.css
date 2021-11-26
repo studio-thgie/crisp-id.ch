@@ -2,6 +2,7 @@ html, body {
     overscroll-behavior-y: none;
 }
 
+/* fonts */
 .sans, .sans-font, h1, h2, h3 {
     font-family: 'Gustavo', sans-serif;
 }
@@ -12,7 +13,7 @@ p, ul, a {
     font-family: 'Sometimes Times BETA', serif;
 }
 
-/* */
+/* carousell */
 .sans > *,
 .serif > * {
     position: absolute;
@@ -21,11 +22,11 @@ p, ul, a {
 }
 .sans > * {
     transform-origin: -100% 50%;
-    transform: translateY(-200%) /*rotate(-25deg)*/;
+    transform: translateY(-200%);
 }
 .serif > * {
     transform-origin: 100% 50%;
-    transform: translateY(200%) /*rotate(-25deg)*/;
+    transform: translateY(200%);
 }
 .sans > *.show,
 .serif > *.show {
@@ -36,21 +37,30 @@ p, ul, a {
     transform: translateY(-10px); /* mintor correction because of different font rendering */
 }
 .serif > *.show {
-    transform: translateY(0) /*rotate(0)*/;
+    transform: translateY(0);
 }
 .sans > *.gone {
-    transform: translateY(200%) /*rotate(25deg)*/;
+    transform: translateY(200%);
     opacity: 0;
 }
 .serif > *.gone {
-    transform: translateY(-200%) /*rotate(25deg)*/;
+    transform: translateY(-200%);
     opacity: 0;
 }
 .color-green {
     color: #00FFBE;
 }
-#lets-meet.active {
+
+/* ui */
+.cta {
     display: inline-block;
+    direction: rtl;
+    letter-spacing: .75rem;
+    text-indent: -.75rem;
+    padding-bottom: 3px;
+}
+.cta:hover,
+.cta.active {
     color: black;
-    border-bottom: 1px solid #00FFBE;
+    border-bottom: 2px solid #00FFBE;
 }
