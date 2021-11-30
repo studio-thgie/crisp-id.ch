@@ -3,38 +3,45 @@ let sans_index = 0,
     serif_index = 0,
     serif = document.querySelectorAll('.serif > *');
 
-let upping = false, downing = false, meeting = false;
+let upping = false, downing = false, meeting = false,
+    x_down = null, y_down = null;
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    document.querySelector('#lets-meet').addEventListener('click', evt => {
-        document.querySelector('#lets-greet').classList.remove('active');
-        document.querySelector('#greet').classList.add('invisible');
+    let lets_greet = document.querySelector('#lets-greet'),
+        greet = document.querySelector('#greet'),
+        lets_meet = document.querySelector('#lets-meet'),
+        meet = document.querySelector('#meet'),
+        close_all = document.querySelector('#close-all');
+        
+    lets_meet.addEventListener('click', evt => {
+        lets_greet.classList.remove('active');
+        greet.classList.add('invisible');
 
-        document.querySelector('#close-all').classList.remove('hidden');
+        close_all.classList.remove('hidden');
 
-        document.querySelector('#lets-meet').classList.toggle('active');
-        document.querySelector('#meet').classList.toggle('invisible');
+        lets_meet.classList.add('active');
+        meet.classList.remove('invisible');
     })
 
-    document.querySelector('#lets-greet').addEventListener('click', evt => {
-        document.querySelector('#lets-meet').classList.remove('active');
-        document.querySelector('#meet').classList.add('invisible');
+    lets_greet.addEventListener('click', evt => {
+        lets_meet.classList.remove('active');
+        meet.classList.add('invisible');
 
-        document.querySelector('#close-all').classList.remove('hidden');
+        close_all.classList.remove('hidden');
 
-        document.querySelector('#lets-greet').classList.toggle('active');
-        document.querySelector('#greet').classList.toggle('invisible');
+        lets_greet.classList.add('active');
+        greet.classList.remove('invisible');
     })
 
-    document.querySelector('#close-all').addEventListener('click', evt => {
-        document.querySelector('#lets-meet').classList.remove('active');
-        document.querySelector('#meet').classList.add('invisible');
+    close_all.addEventListener('click', evt => {
+        lets_meet.classList.remove('active');
+        meet.classList.add('invisible');
 
-        document.querySelector('#lets-greet').classList.remove('active');
-        document.querySelector('#greet').classList.add('invisible');
+        lets_greet.classList.remove('active');
+        greet.classList.add('invisible');
 
-        document.querySelector('#close-all').classList.add('hidden');
+        close_all.classList.add('hidden');
     })
 
     sans[sans_index].classList.add('show');
@@ -44,6 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('mousewheel', wheeling);
     window.addEventListener('DOMMouseScroll', wheeling);
 
+    /* touch */
+    document.addEventListener('touchstart', touch_start, false);        
+    document.addEventListener('touchmove', touch_move, false);      
 });
 
 function wheeling(evt) {
@@ -115,3 +125,43 @@ function down() {
         }, 500);
     }
 }
+
+function touch_start(evt) {
+    const firstTouch = get_touches(evt)[0];                                      
+    x_down = firstTouch.clientX;                                      
+    y_down = firstTouch.clientY;                                      
+};                                                
+                                                                        
+function touch_move(evt) {
+    if ( ! x_down || ! y_down ) {
+        return;
+    }
+
+    var x_up = evt.touches[0].clientX;                                    
+    var y_up = evt.touches[0].clientY;
+
+    var x_diff = x_down - x_up;
+    var y_diff = y_down - y_up;
+                                                                        
+    if ( Math.abs( x_diff ) > Math.abs( y_diff ) ) {
+        if ( x_diff > 0 ) {
+            /* right swipe */ 
+        } else {
+            /* left swipe */
+        }                       
+    } else {
+        if ( y_diff > 0 ) {
+            down();
+        } else { 
+            up();
+        }                                                                 
+    }
+
+    x_down = null;
+    y_down = null;                                             
+};
+
+function get_touches(evt) {
+    return evt.touches ||
+        evt.originalEvent.touches;
+}    

@@ -67,11 +67,12 @@
             </div>
 
             {% for person in people|order('position') %}
-            <div class="relative flex flex-col md:flex-row min-h-screen py-20 px-10 bg-white max-w-7xl m-auto">
-                <div class="w-2/3 md:w-1/2 h-80 md:h-auto mx-auto mb-4 md:mb-0 pr-0 md:pr-8 bg-cover bg-center" style="background-color: #F2F2F2; background-image: url('{{ person.image|thumbnail(960) }}')">
+            <div class="relative flex flex-col md:flex-row py-20 px-10 bg-white max-w-7xl m-auto">
+                <div class="w-2/3 md:w-1/2 mx-auto mb-4 md:mb-0 pr-0 md:pr-8 bg-cover bg-center">
+                    <img src="{{ person.image|thumbnail(960) }}" alt="{{ person.first_name }} {{ person.last_name }}">
                 </div>
                 <div class="relative flex flex-col w-full md:w-1/2 pl-0 md:pl-8 justify-end">
-                    <span class="absolute top-2 md: top-8 right-2 md:right-auto">
+                    <span class="absolute top-8 right-2 md:right-auto">
                         <img class="w-10 md:w-16" src="{{ person.avatar }}" alt="{{ person.first_name }} {{ person.last_name }}">
                     </span>
                     <h3 class="mb-6 md:mb-10">
@@ -107,7 +108,7 @@
         <button type="button" id="lets-greet" class="text-md md:text-2xl uppercase sans-font color-green cta">Greet</button>
     </footer>
 
-    <button type="button" id="close-all" class="absolute top-14 right-6 w-4 h-4 hidden md:hidden bg-cover bg-center no-repeat z-50" style="background-image: url('{{ asset('assets/images/crisp-id_Landingpage_Back button.svg') }}'); transform: translateY(-3px);">
+    <button type="button" id="close-all" class="absolute top-14 md:top-8 right-6 md:right-16 w-4 h-4 md:w-6 md:h-6 hidden bg-cover bg-center no-repeat z-50" style="background-image: url('{{ asset('assets/images/crisp-id_Landingpage_Back button.svg') }}'); transform: translateY(-3px);">
     </button>
 
     <script src="{{ asset('assets/crisp.js') }}"></script>
