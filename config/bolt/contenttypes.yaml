@@ -95,7 +95,7 @@ people:
             fixture_format: '{url}'
         slug:
             type: slug
-            uses: [ name ]
+            uses: [ first_name, last_name ]
     icon_one: fa:user
     icon_many: fa:users
 
