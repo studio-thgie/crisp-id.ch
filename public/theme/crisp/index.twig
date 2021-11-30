@@ -15,11 +15,11 @@
 </head>
 <body>
 
-    <header class="fixed top-0 left-0 w-1/2 md:w-full text-center pt-12 md:pt-6 pl-10 md:pl-0  z-50">
+    <header class="fixed top-0 left-0 w-1/2 md:w-full text-center pt-8 md:pt-6 pl-10 md:pl-0  z-50">
         <button type="button" id="lets-meet" class="text-md md:text-2xl uppercase sans-font color-green cta">Meet</button>
     </header>
 
-    <div class="fixed top-0 w-screen h-screen overflow-hidden pointer-events-none">
+    <div class="fixed top-0 w-screen h-screen overflow-hidden pointer-events-none" style="touch-action: none;>
         <div id="arrows" class="fixed flex flex-col w-full h-full justify-center items-center text-xl transition">
             <span class="mb-40">
                 <img width="20" src="{{ asset('assets/images/crisp-id_Landingpage_Arrow.svg') }}" alt="Arrow Up">
@@ -104,11 +104,11 @@
         </div>
     </div>
 
-    <footer class="fixed top-0 right-0 md:bottom-0 md:top-auto w-1/2 md:w-full text-center pt-12 pb-0 md:pt-auto md:pb-6 pr-10 md:pr-0 z-50">
+    <footer class="fixed top-0 right-0 md:bottom-0 md:top-auto w-1/2 md:w-full text-center pt-8 pb-0 md:pt-auto md:pb-6 pr-10 md:pr-0 z-50">
         <button type="button" id="lets-greet" class="text-md md:text-2xl uppercase sans-font color-green cta">Greet</button>
     </footer>
 
-    <button type="button" id="close-all" class="fixed top-14 md:top-8 right-6 md:right-16 w-4 h-4 md:w-6 md:h-6 hidden bg-cover bg-center no-repeat z-50" style="background-image: url('{{ asset('assets/images/crisp-id_Landingpage_Back button.svg') }}'); transform: translateY(-3px);">
+    <button type="button" id="close-all" class="fixed top-10 md:top-8 right-6 md:right-16 w-4 h-4 md:w-6 md:h-6 hidden bg-cover bg-center no-repeat z-50" style="background-image: url('{{ asset('assets/images/crisp-id_Landingpage_Back button.svg') }}'); transform: translateY(-3px);">
     </button>
 
     <script src="{{ asset('assets/crisp.js') }}"></script>
