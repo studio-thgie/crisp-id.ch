@@ -129,7 +129,9 @@ function down() {
 function touch_start(evt) {
     const firstTouch = get_touches(evt)[0];                                      
     x_down = firstTouch.clientX;                                      
-    y_down = firstTouch.clientY;                                      
+    y_down = firstTouch.clientY;   
+    
+    evt.preventDefault();
 };                                                
                                                                         
 function touch_move(evt) {
@@ -154,11 +156,13 @@ function touch_move(evt) {
             down();
         } else { 
             up();
-        }                                                                 
+        }
     }
 
     x_down = null;
-    y_down = null;                                             
+    y_down = null;
+
+    evt.preventDefault();
 };
 
 function get_touches(evt) {
