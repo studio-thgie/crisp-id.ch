@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('#lets-greet').classList.remove('active');
         document.querySelector('#greet').classList.add('invisible');
 
+        document.querySelector('#close-all').classList.remove('hidden');
+
         document.querySelector('#lets-meet').classList.toggle('active');
         document.querySelector('#meet').classList.toggle('invisible');
     })
@@ -19,8 +21,20 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('#lets-meet').classList.remove('active');
         document.querySelector('#meet').classList.add('invisible');
 
+        document.querySelector('#close-all').classList.remove('hidden');
+
         document.querySelector('#lets-greet').classList.toggle('active');
         document.querySelector('#greet').classList.toggle('invisible');
+    })
+
+    document.querySelector('#close-all').addEventListener('click', evt => {
+        document.querySelector('#lets-meet').classList.remove('active');
+        document.querySelector('#meet').classList.add('invisible');
+
+        document.querySelector('#lets-greet').classList.remove('active');
+        document.querySelector('#greet').classList.add('invisible');
+
+        document.querySelector('#close-all').classList.add('hidden');
     })
 
     sans[sans_index].classList.add('show');

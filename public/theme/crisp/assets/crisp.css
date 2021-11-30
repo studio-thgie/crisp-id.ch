@@ -86,10 +86,17 @@ em, .serif, .serif-font {
     direction: rtl;
     letter-spacing: .75rem;
     text-indent: -.75rem;
-    padding-bottom: 3px;
 }
 .cta:hover,
 .cta.active {
     color: black;
     border-bottom: 2px solid #00FFBE;
+}
+
+@media (max-width: 768px) {
+    .cta {
+        direction: rtl;
+        letter-spacing: .5rem;
+        text-indent: -.5rem;
+    }
 }

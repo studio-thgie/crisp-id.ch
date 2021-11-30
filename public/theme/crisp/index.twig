@@ -15,8 +15,8 @@
 </head>
 <body>
 
-    <header class="fixed top-0 w-full text-center pt-6 z-50">
-        <button type="button" id="lets-meet" class="text-2xl uppercase sans-font color-green cta">Meet</button>
+    <header class="fixed top-0 left-0 w-1/2 md:w-full text-center pt-12 md:pt-6 pl-10 md:pl-0  z-50">
+        <button type="button" id="lets-meet" class="text-md md:text-2xl uppercase sans-font color-green cta">Meet</button>
     </header>
 
     <div class="fixed top-0 w-screen h-screen overflow-hidden">
@@ -45,41 +45,41 @@
     <div id="meet" class="fixed top-0 w-full h-screen invisible z-20 overflow-scroll">
         <div>
             <div class="relative flex items-center min-h-screen py-20 bg-white">
-                <div class="flex bg-cover bg-center justify-center items-center w-full" style="background-image: url('{{ record.header_image|thumbnail(1280) }}'); min-height: 640px; min-height: 580px;">
+                <div class="flex bg-cover bg-center justify-center items-center w-full px-10" style="background-image: url('{{ record.header_image|thumbnail(1280) }}'); min-height: 640px; min-height: 580px;">
                     <img style="max-width: 920px;" src="{{ asset('assets/images/CRI_Wordmark_RGB_seafoam.svg') }}" alt="crisp id wordmark">
                 </div>
             </div>
 
             <div class="relative flex min-h-screen justify-center items-center  bg-white">
-                <div class="max-w-3xl">
+                <div class="max-w-3xl px-10">
                     <div class="flex mb-16 justify-center">
                         {% for person in people|order('position') %}
-                            <span class="mx-8">
-                                <img width="64" height="64" src="{{ person.avatar }}" alt="{{ person.first_name }} {{ person.last_name }}">
+                            <span class="mx-4 md:mx-8">
+                                <img class="w-10 md:w-16" src="{{ person.avatar }}" alt="{{ person.first_name }} {{ person.last_name }}">
                             </span>
                         {% endfor %}
                     </div>
-                    <h2 class="sans-font text-center text-3xl mb-8 uppercase">{{ record.about_title }}</h2>
-                    <div class="content text-xl">
+                    <h2 class="sans-font text-center text-2xl md:text-3xl mb-8 uppercase">{{ record.about_title }}</h2>
+                    <div class="content text-sm md:text-xl">
                         {{ record.about|raw }}
                     </div>
                 </div>
             </div>
 
             {% for person in people|order('position') %}
-            <div class="relative flex min-h-screen py-20 px-10 bg-white max-w-7xl m-auto">
-                <div class="w-1/2 pr-8 bg-cover bg-center" style="background-color: #F2F2F2; background-image: url('{{ person.image|thumbnail(960) }}')">
+            <div class="relative flex flex-col md:flex-row min-h-screen py-20 px-10 bg-white max-w-7xl m-auto">
+                <div class="w-2/3 md:w-1/2 h-80 md:h-auto mx-auto mb-4 md:mb-0 pr-0 md:pr-8 bg-cover bg-center" style="background-color: #F2F2F2; background-image: url('{{ person.image|thumbnail(960) }}')">
                 </div>
-                <div class="relative flex flex-col w-1/2 pl-8 justify-end">
-                    <span class="absolute top-8">
-                        <img width="64" height="64" src="{{ person.avatar }}" alt="{{ person.first_name }} {{ person.last_name }}">
+                <div class="relative flex flex-col w-full md:w-1/2 pl-0 md:pl-8 justify-end">
+                    <span class="absolute top-2 md: top-8 right-2 md:right-auto">
+                        <img class="w-10 md:w-16" src="{{ person.avatar }}" alt="{{ person.first_name }} {{ person.last_name }}">
                     </span>
-                    <h3 class="mb-10">
-                        <span class="text-7xl lowercase block mb-2 sans-font" >{{ person.first_name }}</span>
-                        <span class="text-7xl lowercase block serif-font">{{ person.last_name }}</span>
+                    <h3 class="mb-6 md:mb-10">
+                        <span class="text-5xl md:text-7xl lowercase block mb-0 md:mb-2 sans-font" >{{ person.first_name }}</span>
+                        <span class="text-5xl md:text-7xl lowercase block serif-font">{{ person.last_name }}</span>
                     </h3>
-                    <span class="block color-purple font-sans text-sm">{{ person.description }}</span>
-                    <div class="content">
+                    <span class="block color-purple font-sans text-xs">{{ person.description }}</span>
+                    <div class="content text-sm md:text-md">
                         {{ person.content|raw }}
                     </div>
                 </div>
@@ -95,7 +95,7 @@
                     <div class="mb-8">
                         <img class="mx-auto" style="max-width: 220px;" src="{{ asset('assets/images/CRI_Wordmark_RGB_seafoam.svg') }}" alt="crisp id wordmark">
                     </div>
-                    <div class="content sans-font text-5xl leading-tight text-center">
+                    <div class="content sans-font text-xl md:text-5xl leading-tight text-center">
                         {{ record.greet|raw }}
                     </div>
                 </div>
@@ -103,9 +103,12 @@
         </div>
     </div>
 
-    <footer class="fixed bottom-0 w-full text-center pb-6 z-50">
-        <button type="button" id="lets-greet" class="text-2xl uppercase sans-font color-green cta">Greet</button>
+    <footer class="fixed top-0 right-0 md:bottom-0 md:top-auto w-1/2 md:w-full text-center pt-12 pb-0 md:pt-auto md:pb-6 pr-10 md:pr-0 z-50">
+        <button type="button" id="lets-greet" class="text-md md:text-2xl uppercase sans-font color-green cta">Greet</button>
     </footer>
+
+    <button type="button" id="close-all" class="absolute top-14 right-6 w-4 h-4 hidden md:hidden bg-cover bg-center no-repeat z-50" style="background-image: url('{{ asset('assets/images/crisp-id_Landingpage_Back button.svg') }}'); transform: translateY(-3px);">
+    </button>
 
     <script src="{{ asset('assets/crisp.js') }}"></script>
 
