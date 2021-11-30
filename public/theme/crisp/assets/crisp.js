@@ -129,7 +129,11 @@ function down() {
 function touch_start(evt) {
     const firstTouch = get_touches(evt)[0];                                      
     x_down = firstTouch.clientX;                                      
-    y_down = firstTouch.clientY;   
+    y_down = firstTouch.clientY;
+
+    setTimeout(() => {
+        document.querySelector('#arrows').classList.add('opacity-0');
+    }, 500);
     
     evt.preventDefault();
 };                                                
