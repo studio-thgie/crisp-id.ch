@@ -97,6 +97,8 @@ em, .serif, .serif-font {
 .cta:hover,
 .cta.active {
     color: black;
+}
+.bb, .a-bb a {
     border-bottom: 2px solid #00FFBE;
 }
 

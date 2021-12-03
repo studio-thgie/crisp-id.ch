@@ -13,13 +13,6 @@ homepage:
             class: large
             group: content
             label: Title
-            postfix: |
-                The 'Homepage' can contain basic information about the website. This title will be
-                shown on the homepage of the website, as the name implies. To change the
-                <em><strong>name</strong></em> of the site, as is shown in the header, and the tab
-                in the webbrowser, edit <code>sitename:</code> in the configuration file.
-        header_image:
-            type: image
         terms_left:
             type: text
             group: content
@@ -30,16 +23,47 @@ homepage:
             group: content
             label: Begriffe Rechts
             postfix: Begriffe mit Komma speparieren
+
+        header_image:
+            group: meet
+            type: image
         about_title:
+            group: meet
             type: text
-            group: content
             label: About Titel
         about:
+            group: meet
             type: redactor
             label: About Inhalt
+        
         greet:
+            group: greet
             type: redactor
             label: Greet Inhalt
+        greet_visit_title:
+            group: greet
+            type: text
+            label: Besuchen Titel
+        greet_visit_text:
+            group: greet
+            type: redactor
+            label: Besuchen Text
+        greet_contact_title:
+            group: greet
+            type: text
+            label: Kontaktieren Titel
+        greet_contact_text:
+            group: greet
+            type: redactor
+            label: Kontaktieren Text
+        greet_follow_title:
+            group: greet
+            type: text
+            label: Folgen Titel
+        greet_follow_text:
+            group: greet
+            type: redactor
+            label: Folgen Text
         slug:
             type: slug
             uses: title
