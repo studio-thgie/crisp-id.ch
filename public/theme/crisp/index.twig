@@ -45,7 +45,7 @@
     <div id="meet" class="fixed top-0 w-full h-screen invisible z-20 overflow-scroll">
         <div>
             <div class="relative flex items-center min-h-screen py-20 bg-white">
-                <div class="flex bg-cover bg-center justify-center items-center w-full px-10" style="background-image: url('{{ record.header_image|thumbnail(1280) }}'); min-height: 640px; min-height: 580px;">
+                <div class="flex bg-cover bg-center justify-center items-center w-full px-10" style="background-image: url('{{ record.header_image|thumbnail(1280) }}'); min-height: 720px;">
                     <img class="w-full" style="max-width: 920px;" src="{{ asset('assets/images/CRI_Wordmark_RGB_seafoam.svg') }}" alt="crisp id wordmark">
                 </div>
             </div>
@@ -76,11 +76,11 @@
                         <img class="w-10 md:w-16" src="{{ person.avatar }}" alt="{{ person.first_name }} {{ person.last_name }}">
                     </span>
                     <h3 class="mb-6 md:mb-10">
-                        <span class="text-5xl md:text-7xl lowercase block mb-0 md:mb-2 sans-font" >{{ person.first_name }}</span>
-                        <span class="text-5xl md:text-7xl lowercase block serif-font">{{ person.last_name }}</span>
+                        <span class="text-5xl md:text-7xl block mb-0 md:mb-2 sans-font" >{{ person.first_name }}</span>
+                        <span class="text-5xl md:text-7xl block serif-font">{{ person.last_name }}</span>
                     </h3>
                     <span class="block color-purple font-sans text-xs">{{ person.description }}</span>
-                    <div class="content text-sm md:text-md">
+                    <div class="content text-sm md:text-xl">
                         {{ person.content|raw }}
                     </div>
                 </div>
@@ -99,18 +99,21 @@
                     <div class="content mb-16 md:mb-24 sans-font text-xl mx-6 md:text-5xl leading-tight text-center">
                         {{ record.greet|raw }}
                     </div>
-                    <div class="static md:flex mb-10">
-                        <div class="w-full md:w-1/3 text-center mb-6 md:mb-0">
-                            <h3 class="color-purple font-sans text-sm md:text-base mb-2 md:mb-10">{{ record.greet_visit_title }}</h3>
-                            <div class="font-sans md:text-xl a-bb">{{ record.greet_visit_text|raw }}</div>
+                    <div class="static md:flex items-start mb-10">
+                        <div class="w-full flex md:flex-col md:w-1/3 md:text-center items-start md:items-center justify-around mb-6 md:mb-0 px-6">
+                            <h3 class="w-1/3 md:w-full color-purple font-sans text-sm md:text-base">{{ record.greet_visit_title }}</h3>
+                            <img width="20" class="inline-block mx-8 md:mx-auto md:my-4 transform rotate-90 md:rotate-180" src="{{ asset('assets/images/crisp-id_Landingpage_Arrow.svg') }}" alt="Arrow Down">
+                            <div class="w-1/3 md:w-full font-sans md:text-xl a-bb">{{ record.greet_visit_text|raw }}</div>
                         </div>
-                        <div class="w-full md:w-1/3 text-center mb-6 md:mb-0">
-                            <h3 class="color-purple font-sans text-sm md:text-base mb-2 md:mb-10">{{ record.greet_contact_title }}</h3>
-                            <div class="font-sans md:text-xl a-bb">{{ record.greet_contact_text|raw }}</div>
+                        <div class="w-full flex md:flex-col md:w-1/3 md:text-center items-start md:items-center justify-around mb-6 md:mb-0 px-6">
+                            <h3 class="w-1/3 md:w-full color-purple font-sans text-sm md:text-base">{{ record.greet_contact_title }}</h3>
+                            <img width="20" class="inline-block mx-8 md:mx-auto md:my-4 transform rotate-90 md:rotate-180" src="{{ asset('assets/images/crisp-id_Landingpage_Arrow.svg') }}" alt="Arrow Down">
+                            <div class="w-1/3 md:w-full font-sans md:text-xl a-bb">{{ record.greet_contact_text|raw }}</div>
                         </div>
-                        <div class="w-full md:w-1/3 text-center mb-6 md:mb-0">
-                            <h3 class="color-purple font-sans text-sm md:text-base mb-2 md:mb-10">{{ record.greet_follow_title }}</h3>
-                            <div class="font-sans md:text-xl a-bb">{{ record.greet_follow_text|raw }}</div>
+                        <div class="w-full flex md:flex-col md:w-1/3 md:text-center items-start md:items-center justify-around mb-6 md:mb-0 px-6">
+                            <h3 class="w-1/3 md:w-full color-purple font-sans text-sm md:text-base">{{ record.greet_follow_title }}</h3>
+                            <img width="20" class="inline-block mx-8 md:mx-auto md:my-4 transform rotate-90 md:rotate-180" src="{{ asset('assets/images/crisp-id_Landingpage_Arrow.svg') }}" alt="Arrow Down">
+                            <div class="w-1/3 md:w-full font-sans md:text-xl a-bb">{{ record.greet_follow_text|raw }}</div>
                         </div>
                     </div>
                 </div>

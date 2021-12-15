@@ -36,6 +36,7 @@ em, .serif, .serif-font {
     transform: translateY(-200%);
 }
 .serif > * {
+    display: inline-block;
     transform-origin: 100% 50%;
     transform: translateY(200%);
 }
@@ -45,7 +46,7 @@ em, .serif, .serif-font {
     transition: transform .25s ease-out, opacity .25s ease-out;
 }
 .sans > *.show {
-    transform: translateY(-10px); /* mintor correction because of different font rendering */
+    transform: translateY(-13px); /* mintor correction because of different font rendering */
 }
 .serif > *.show {
     transform: translateY(0);
@@ -67,14 +68,15 @@ em, .serif, .serif-font {
 }
 
 @media (max-width: 768px) {
-    .serif > * {
-        transform: translateY(200%) translate(-8px);
+    .sans > *,
+    .sans > *.show,
+    .sans > *.gone {
+        transform: translateY(0);
     }
-    .serif > *.show {
-        transform: translateY(0) translateX(-8px);
-    }
+    .serif > *,
+    .serif > *.show,
     .serif > *.gone {
-        transform: translateY(-200%) translate(-8px);
+        transform: translateY(0) translate(-8px);
     }
 }
 
