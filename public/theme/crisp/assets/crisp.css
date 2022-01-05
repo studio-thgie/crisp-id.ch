@@ -46,7 +46,8 @@ em, .serif, .serif-font {
     transition: transform .25s ease-out, opacity .25s ease-out;
 }
 .sans > *.show {
-    transform: translateY(-13px); /* mintor correction because of different font rendering */
+    transform: translateY(0);
+    -moz-transform: translateY(-13px); /* mintor correction because of different font rendering */
 }
 .serif > *.show {
     transform: translateY(0);
