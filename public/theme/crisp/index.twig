@@ -28,13 +28,13 @@
                 <img width="20" class="transform rotate-180" src="{{ asset('assets/images/crisp-id_Landingpage_Arrow.svg') }}" alt="Arrow Down">
             </span>
         </div>
-        <main class="flex flex-col md:flex-row w-screen h-screen">
-            <div class="flex w-full md:w-1/2 h-full justify-center items-end md:justify-end md:items-center pr-2 sans text-5xl md:text-8xl">
+        <main class="flex flex-col lg:flex-row w-screen h-screen">
+            <div class="flex w-full lg:w-1/2 h-full justify-center items-end lg:justify-end lg:items-center pr-2 sans text-5xl lg:text-8xl">
                 {% for term in record.terms_left|split(',') %}
                     <span class="mb-0">{{ term }}</span>
                 {% endfor %}
             </div>
-            <div class="flex w-full md:w-1/2 h-full justify-center items-star md:justify-start md:items-center pl-2 serif text-5xl md:text-8xl">
+            <div class="flex w-full lg:w-1/2 h-full justify-center items-star lg:justify-start lg:items-center pl-2 serif text-5xl lg:text-8xl">
                 {% for term in record.terms_right|split(',') %}
                     <span class="mb-0">{{ term }}</span>
                 {% endfor %}
@@ -67,20 +67,20 @@
             </div>
 
             {% for person in people|order('position') %}
-            <div class="relative flex flex-col md:flex-row py-20 px-10 bg-white max-w-7xl m-auto">
-                <div class="w-2/3 md:w-1/2 mx-auto mb-4 md:mb-0 pr-0 md:pr-8 bg-cover bg-center">
+            <div class="relative flex flex-col lg:flex-row py-20 px-10 bg-white max-w-7xl m-auto">
+                <div class="w-2/3 lg:w-1/2 mx-auto mb-4 lg:mb-0 pr-0 lg:pr-8 bg-cover bg-center">
                     <img src="{{ person.image|thumbnail(960) }}" alt="{{ person.first_name }} {{ person.last_name }}">
                 </div>
-                <div class="relative flex flex-col w-full md:w-1/2 pl-0 md:pl-8 justify-end">
-                    <span class="absolute top-8 right-2 md:right-auto">
-                        <img class="w-10 md:w-16" src="{{ person.avatar }}" alt="{{ person.first_name }} {{ person.last_name }}">
+                <div class="relative flex flex-col w-full lg:w-1/2 pl-0 lg:pl-8 justify-end">
+                    <span class="absolute top-8 right-2 lg:right-auto">
+                        <img class="w-10 lg:w-16" src="{{ person.avatar }}" alt="{{ person.first_name }} {{ person.last_name }}">
                     </span>
-                    <h3 class="mb-6 md:mb-10 md:mt-32">
-                        <span class="text-5xl md:text-7xl block mb-0 md:mb-2 sans-font" >{{ person.first_name }}</span>
-                        <span class="text-5xl md:text-7xl block serif-font">{{ person.last_name }}</span>
+                    <h3 class="mb-6 lg:mb-10 lg:mt-32">
+                        <span class="text-5xl lg:text-7xl block mb-0 lg:mb-2 sans-font" >{{ person.first_name }}</span>
+                        <span class="text-5xl lg:text-7xl block serif-font">{{ person.last_name }}</span>
                     </h3>
                     <span class="block color-purple font-sans text-xs">{{ person.description }}</span>
-                    <div class="content text-sm md:text-xl">
+                    <div class="content text-sm lg:text-xl">
                         {{ person.content|raw }}
                     </div>
                 </div>

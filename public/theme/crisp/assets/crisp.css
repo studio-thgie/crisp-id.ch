@@ -68,7 +68,7 @@ em, .serif, .serif-font {
     color: #6400F0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .sans > *,
     .sans > *.show,
     .sans > *.gone {
@@ -105,7 +105,7 @@ em, .serif, .serif-font {
     border-bottom: 2px solid #00FFBE;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .cta {
         direction: rtl;
         letter-spacing: .5rem;
