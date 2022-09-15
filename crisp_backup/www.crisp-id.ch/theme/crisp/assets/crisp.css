@@ -1,0 +1,114 @@
+html, body {
+    position: fixed;
+}
+
+body {
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* fonts */
+.sans, .sans-font, h1, h2, h3, .sans-font p {
+    font-family: 'Gustavo', sans-serif;
+}
+p, ul, a {
+    font-family: 'Object Sans', sans-serif;
+}
+em, .serif, .serif-font {
+    font-family: 'Sometimes Times BETA', serif;
+    font-style: normal;
+}
+.content p, ul, a, span {
+    margin-bottom: 1rem;
+}
+
+/* carousell */
+.sans > *,
+.serif > * {
+    position: absolute;
+    opacity: 0;
+    transition: transform .25s ease-in, opacity .25s ease-in;
+}
+.sans > * {
+    transform-origin: -100% 50%;
+    transform: translateY(-200%);
+}
+.serif > * {
+    display: inline-block;
+    transform-origin: 100% 50%;
+    transform: translateY(200%);
+}
+.sans > *.show,
+.serif > *.show {
+    opacity: 1;
+    transition: transform .25s ease-out, opacity .25s ease-out;
+}
+.sans > *.show {
+    transform: translateY(0);
+    -moz-transform: translateY(-13px); /* mintor correction because of different font rendering */
+}
+.serif > *.show {
+    transform: translateY(0);
+}
+.sans > *.gone {
+    transform: translateY(200%);
+    opacity: 0;
+}
+.serif > *.gone {
+    transform: translateY(-200%);
+    opacity: 0;
+}
+
+.color-green {
+    color: #00FFBE;
+}
+.color-purple {
+    color: #6400F0;
+}
+
+@media (max-width: 1024px) {
+    .sans > *,
+    .sans > *.show,
+    .sans > *.gone {
+        transform: translateY(0);
+    }
+    .serif > *,
+    .serif > *.show,
+    .serif > *.gone {
+        transform: translateY(0) translate(-8px);
+    }
+}
+
+/* ui */
+#meet, #greet {
+    visibility: visible;
+    opacity: 1;
+    transition: .25s;
+}
+#meet.invisible, #greet.invisible {
+    visibility: hidden;
+    opacity: 0;
+}
+.cta {
+    display: inline-block;
+    direction: rtl;
+    letter-spacing: .75rem;
+    text-indent: -.75rem;
+}
+.cta:hover,
+.cta.active {
+    color: black;
+}
+.bb, .a-bb a {
+    border-bottom: 2px solid #00FFBE;
+}
+
+@media (max-width: 1024px) {
+    .cta {
+        direction: rtl;
+        letter-spacing: .5rem;
+        text-indent: -.5rem;
+    }
+}
