@@ -1,0 +1,80 @@
+{% setcontent people = 'people' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ record.title }}</title>
+
+    <link rel="stylesheet" href="{{ asset('assets/fonts/stylesheet.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/base.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/crisp.css') }}">
+
+</head>
+<body>
+
+    <header class="fixed top-0 left-0 w-1/2 md:w-full text-center pt-8 md:pt-6 pl-10 md:pl-0 z-50">
+        <button type="button" id="lets-meet" class="text-md md:text-2xl uppercase sans-font color-green cta bb">Info</button>
+    </header>
+
+    <div class="fixed top-0 w-screen h-screen overflow-hidden pointer-events-none" style="touch-action: none;">
+        <div id="arrows" class="fixed flex flex-col w-full h-screen justify-center items-center text-xl transition">
+            <span class="transform -translate-y-40">
+                <img width="20" src="{{ asset('assets/images/crisp-id_Landingpage_Arrow.svg') }}" alt="Arrow Up">
+            </span>
+            <span class="transform translate-y-40">
+                <img width="20" class="transform rotate-180" src="{{ asset('assets/images/crisp-id_Landingpage_Arrow.svg') }}" alt="Arrow Down">
+            </span>
+        </div>
+        <main class="flex flex-col lg:flex-row w-screen h-screen">
+            <div class="flex w-full lg:w-1/2 h-full justify-center items-end lg:justify-end lg:items-center pr-2 sans text-5xl lg:text-8xl">
+                {% for term in record.terms_left|split(',') %}
+                    <span class="mb-0">{{ term }}</span>
+                {% endfor %}
+            </div>
+            <div class="flex w-full lg:w-1/2 h-full justify-center items-star lg:justify-start lg:items-center pl-2 serif text-5xl lg:text-8xl">
+                {% for term in record.terms_right|split(',') %}
+                    <span class="mb-0">{{ term }}</span>
+                {% endfor %}
+            </div>
+        </main>
+    </div>
+
+    <div id="meet" class="fixed top-0 w-full h-screen invisible z-20 overflow-scroll">
+        <div>
+            <div class="relative flex min-h-screen justify-center items-center  bg-white">
+                <div class="max-w-3xl px-10">
+                    <div class="flex mb-16 justify-center">
+                        {% for person in people|order('position') %}
+                            <span class="mx-4 md:mx-8">
+                                <img class="w-10 md:w-16" src="{{ person.avatar }}" alt="{{ person.first_name }} {{ person.last_name }}">
+                            </span>
+                        {% endfor %}
+                    </div>
+                    <h2 class="sans-font text-center text-2xl md:text-3xl mb-8 uppercase">{{ record.about_title }}</h2>
+                    <div class="content text-sm md:text-xl text-center">
+                        {{ record.about|raw }}
+                    </div>
+                    <div class="static md:flex items-start mt-20">
+                        <div class="w-full flex md:flex-col md:w-1/2 md:text-center items-start md:items-center justify-around mb-6 md:mb-0 px-6">
+                            <div class="w-full md:w-full font-sans md:text-xl a-bb">{{ record.greet_contact_text|raw }}</div>
+                        </div>
+                        <div class="w-full flex md:flex-col md:w-1/2 md:text-center items-start md:items-center justify-around mb-6 md:mb-0 px-6">
+                            <div class="w-full md:w-full font-sans md:text-xl a-bb">{{ record.greet_follow_text|raw }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <button type="button" id="close-all" class="fixed top-10 md:top-8 right-6 md:right-16 w-4 h-4 md:w-6 md:h-6 hidden bg-cover bg-center no-repeat z-50" style="background-image: url('{{ asset('assets/images/crisp-id_Landingpage_Back button.svg') }}'); transform: translateY(-3px);">
+    </button>
+
+    <script src="{{ asset('assets/crisp.js') }}"></script>
+
+</body>
+</html>

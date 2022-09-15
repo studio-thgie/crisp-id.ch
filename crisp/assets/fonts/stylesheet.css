@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Sometimes Times BETA';
+    src: url('SometimesTimesBETA-Regular.woff2') format('woff2'),
+        url('SometimesTimesBETA-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Object Sans';
+    src: url('ObjectSans-Thin.woff2') format('woff2'),
+        url('ObjectSans-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gustavo';
+    src: url('Gustavo-Medium.woff2') format('woff2'),
+        url('Gustavo-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gustavo';
+    src: url('Gustavo-Regular.woff2') format('woff2'),
+        url('Gustavo-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Object Sans';
+    src: url('ObjectSans-Regular.woff2') format('woff2'),
+        url('ObjectSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

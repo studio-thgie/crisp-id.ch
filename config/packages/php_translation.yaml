@@ -1,6 +1,0 @@
-# php-translation config
-
-translation:
-    configs:
-        bolt:
-            output_dir: "%kernel.project_dir%/translations"
