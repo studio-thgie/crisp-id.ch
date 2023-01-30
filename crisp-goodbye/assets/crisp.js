@@ -70,7 +70,7 @@ function wheeling(evt) {
         if (delta < 0) {
             up();
         } else if (delta > 0) {
-            down();
+            // down();
         }
 
         setTimeout(() => {
